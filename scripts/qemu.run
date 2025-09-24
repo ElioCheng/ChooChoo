@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# consume the flags
+QEMU_ARGS=""
+while getopts "S" opt; do
+    case ${opt} in
+        S) QEMU_ARGS="-S -s" ;;
+    esac
+done
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+BUILD_DIR=$SCRIPT_DIR/../build
+
+
+qemu-system-aarch64 --machine raspi4b --kernel ${BUILD_DIR}/kernel.img --nographic \
+    -append "console=ttyAMA0" \
+    -serial mon:stdio \
+    -serial null \
+    -serial null \
+    -serial null \
+    $QEMU_ARGS

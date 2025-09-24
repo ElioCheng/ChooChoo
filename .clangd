@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - "-I${workspaceFolder}/build/include"
+    - "-I/Users/tongkun/Playground/arm-gnu-toolchain-14.2.rel1-darwin-arm64-aarch64-none-elf/lib/gcc/aarch64-none-elf/14.2.1/include/"
+  Remove:
+    - "-m*"
+Diagnostics:
+  Suppress:
+    - "unused-includes"
+    - "unknown-attributes"
+    - "pp_hash_error"

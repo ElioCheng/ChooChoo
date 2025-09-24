@@ -1,0 +1,80 @@
+# ChooChoo OS - K2 Kernel Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+
+### Build Instructions
+
+#### Standard Kernel Build (RPS Game Test Build)
+
+For CS Environment:
+```bash
+make
+```
+
+The build process will:
+1. Clean and create a fresh build directory
+2. Configure CMake with appropriate cross-compiler and MMU settings
+3. Build the kernel with embedded user applications including RPS game components
+4. Generate `kernel.img` ready for deployment
+
+#### Performance Measurements Build
+
+For comprehensive performance testing with different optimization and cache configurations:
+
+```bash
+make srr_perf
+```
+
+This command will:
+1. Build 8 different kernel configurations testing Send-Receive-Reply (SRR) performance
+2. Generate optimized and non-optimized versions
+3. Generate different cache configurations versions (no cache, instruction cache, data cache, both caches)
+4. Create performance measurement artifacts in `./srr_perf_artifacts/`
+
+#### Cleaning Build Artifacts
+
+```bash
+# Clean standard build
+make clean
+
+# Clean performance test artifacts
+./scripts/srr_perf_build.sh clean
+```
+
+## Operating the System
+
+### Starting Up
+1. Load the appropriate `kernel.img` onto the target system
+2. The system will boot and initialize the kernel
+3. The kernel will automatically create and run test user tasks
+
+### Running RPS Game
+The RPS game runs automatically upon system startup when the `kernel.img` is loaded
+
+### Running Performance Tests
+When using performance measurement builds (`./srr_perf_artifacts/*.img`), the kernel will execute SRR performance benchmarks automatically and log the results to the console
+
+### New System Calls
+
+The kernel added the following system calls for user tasks compared to K1:
+
+#### Task Management
+- `WaitTid(tid)` - Wait for a task to finish
+
+#### Message Passing
+- `Send(tid, msg, msglen, reply, rplen)` - Send a message to a task
+- `Receive(tid, msg, msglen)` - Receive a message from a task
+- `Reply(tid, reply, rplen)` - Reply to a message
+
+#### Debugging
+- `Panic(fmt, ...)` - Panic with a formatted message
+
+#### UART
+- `UartPutc(line, c)` - Put a character to the UART
+- `UartGetc(line)` - Get a character from the UART
+- `UartPuts(line, str)` - Put a string to the UART

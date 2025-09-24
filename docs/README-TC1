@@ -1,0 +1,107 @@
+# ChooChoo OS - TC1 Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+- Ninja
+
+### Build Instructions
+
+#### Standard Kernel Build
+
+For CS Environment:
+```bash
+make
+```
+
+The build process will:
+1. Clean and create a fresh build directory
+2. Configure CMake with appropriate cross-compiler and MMU settings
+3. Build the kernel with embedded user applications
+4. Generate `kernel.img` ready for deployment
+
+
+#### Cleaning Build Artifacts
+
+```bash
+make clean
+```
+
+## Operating the System
+
+### Starting Up
+1. Load the `kernel.img`
+2. The system will boot and initialize the TUI (Text User Interface)
+3. Use command `reset <A/B>` to reset/initialize the track
+4. Use command `spawn <train> <Sensor>` to spawn a train at a sensor location
+
+### Train Navigation in Waypoint Mode
+
+The system supports three operating modes for trains: **Manual**, **Waypoint**, and **Road**. Waypoint mode provides autonomous navigation with pathfinding capabilities.
+
+#### Initial Setup
+1. **Reset the track**: `reset A` or `reset B` (depending on track type)
+2. **Spawn a train**: `spawn <train_number> <sensor_name>`
+   - Example: `spawn 14 A1` (spawns train 14 at sensor A1)
+3. **Set train to waypoint mode**: `mode <train_number> waypoint`
+   - Example: `mode 14 waypoint`
+
+#### Waypoint Mode Commands
+
+**Speed Control:**
+- `speed <train> <speed>` - Set requested speed (0-14)
+  - Example: `speed 14 8` (sets train 14 to speed 8)
+
+**Destination Navigation:**
+- `dest <train> <sensor> [offset_mm]` - Set destination sensor with optional offset
+  - Example: `dest 14 E7` (navigate train 14 to sensor E7)
+  - Example: `dest 14 E7 100` (navigate to E7 with 100mm offset)
+
+**Emergency Control:**
+- `estop <train>` - Emergency stop train
+  - Example: `estop 14` (emergency stop train 14)
+
+**Manual Override (when stopped):**
+- `rv <train>` - Reverse train direction (only when stopped)
+  - Example: `rv 14` (reverse train 14)
+
+#### Manual Mode Commands
+
+**Direct Speed Control:**
+- `tr <train> <speed>` - Set effective speed directly (0-14)
+  - Example: `tr 14 10` (set train 14 to speed 10)
+
+**Train Control:**
+- `rv <train>` - Reverse train direction
+- `hl <train>` - Toggle headlight on/off
+- `stop <train>` - Stop train
+  - Example: `stop 14` (stop train 14)
+
+#### Navigation Workflow Example
+
+1. **Initialize system:**
+   ```
+   reset A
+   spawn 14 A1
+   ```
+
+2. **Set up waypoint navigation:**
+   ```
+   mode 14 waypoint
+   speed 14 8
+   dest 14 E7
+   ```
+
+4. **Emergency control if needed:**
+   ```
+   estop 14
+   ```
+
+#### Operating Modes
+
+- **Manual Mode**: Direct control of train speed and direction
+- **Waypoint Mode**: Autonomous navigation with pathfinding to destinations
+- **Road Mode**: Advanced autonomous mode with signal-aware navigation

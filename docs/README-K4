@@ -1,0 +1,48 @@
+# ChooChoo OS - K4 Kernel Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+- Ninja
+
+### Build Instructions
+
+#### Standard Kernel Build
+
+For CS Environment:
+```bash
+make
+```
+
+The build process will:
+1. Clean and create a fresh build directory
+2. Configure CMake with appropriate cross-compiler and MMU settings
+3. Build the kernel with embedded user applications
+4. Generate `kernel.img` ready for deployment
+
+
+#### Cleaning Build Artifacts
+
+```bash
+make clean
+```
+
+## Operating the System
+
+### Starting Up
+1. Load the `kernel.img`
+2. The system will boot and initialize the TUI (Text User Interface)
+3. Use command `reset <A/B>` to reset/initialize the track
+4. Use command `spawn <train> <Sensor>` to spawn a train at a sensor location
+
+#### Available Commands
+- `tr <train> <speed>` - Set train speed (0-14)
+- `rv <train>` - Reverse train direction
+- `hl <train>` - Toggle train headlight
+- `sw <switch> <S/C>` - Set switch direction (S=Straight, C=Curved)
+- `allsw <S/C>` - Set all single switches to same direction
+- `help` - Display available commands
+- `q` - Quit and reboot

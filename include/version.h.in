@@ -1,0 +1,2 @@
+#define KERNEL_BUILD_TIME __DATE__ " " __TIME__
+#define KERNEL_BUILD_HASH "@GIT_HASH@"

@@ -1,0 +1,96 @@
+# ChooChoo OS - K1 Kernel Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+
+### Build Instructions
+
+#### For CS Environment:
+```bash
+make
+```
+
+#### For Local Development:
+```bash
+make local
+```
+
+The build process will:
+1. Create a `build` directory
+2. Configure CMake with appropriate settings for ARM64 cross-compilation
+3. Compile the kernel with user task support and generate the final `kernel.img` in the `build` directory
+
+
+## Operating the System
+
+### Starting Up
+1. Load the `kernel.img` onto the target system
+2. The system will boot and initialize the kernel
+3. The kernel will automatically create and run test user tasks
+4. Press F1 to toggle the TUI (Text User Interface) if available
+
+### System Architecture
+
+This kernel implements:
+- **User/Kernel Mode Separation**: Tasks run in user mode (EL0) while kernel runs in kernel mode (EL1)
+- **Priority-Based Scheduling**: 32 priority levels (0 = highest, 31 = lowest) with FIFO within each level
+- **System Calls**: Task creation, identification, yielding, and logging
+- **Context Switching**: ARM64 exception handling for efficient task switching
+
+### Available System Calls
+
+The kernel provides the following system calls for user tasks:
+
+#### Task Management
+- `Create(priority, function)` - Create a new task with specified priority and entry point
+- `MyTid()` - Get current task's ID
+- `MyParentTid()` - Get parent task's ID
+- `Yield()` - Voluntarily yield CPU to other tasks
+- `Exit()` - Terminate current task
+
+#### Debugging
+- `KLog(message)` - Print debug message with task information
+
+### Expected Behavior
+
+Upon startup, the kernel will:
+1. Initialize the scheduler and task management system
+2. Create an initial user task that demonstrates the system functionality
+3. The test tasks will create child tasks with different priorities
+4. Tasks will demonstrate priority-based scheduling, yielding, and proper parent-child relationships
+5. All output is logged with timestamps and task information
+
+Each log entry includes:
+- Timestamp (boot time in seconds)
+- CPU core ID
+- Log level
+- Source location (function:line)
+- Message with task information `[t:tid p:priority]`
+
+### Legacy Train Control (A0 Features)
+
+The system retains the original train control functionality from A0:
+
+#### Train Control Commands
+- `tr <train> <speed>` - Set train speed (0-14)
+- `rv <train>` - Reverse train direction
+- `hl <train>` - Toggle train headlight
+
+#### Switch Control Commands
+- `sw <switch> <S/C>` - Set switch direction (S=Straight, C=Curved)
+- `dsw <153/154/155/156> <L/C/R>` - Set double switch direction
+- `allsw <S/C>` - Set all single switches to same direction
+
+#### System Commands
+- `help` - Display available commands
+- `clear` - Clear the main panel
+- `reset` - Reset the track (stop all trains)
+- `sr` - Request sensor report from all banks
+- `go` - Start the demo function
+- `q` - Quit and reboot
+
+**Note**: Train control commands are available through the TUI interface when the polling loop is active.

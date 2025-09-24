@@ -1,0 +1,46 @@
+# ChooChoo OS - Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+
+### Build Instructions
+1. For CS environment:
+```bash
+make
+```
+
+The build process will:
+1. Create a `build` directory
+2. Configure CMake with appropriate settings
+3. Compile the kernel and generate the final `kernel.img` in the `build` directory
+
+## Operating the System
+
+### Starting Up
+1. Load the `kernel.img`
+2. The system will boot and initialize the TUI (Text User Interface)
+3. Press F1 to toggle the TUI interface
+
+### Available Commands
+
+#### Train Control
+- `tr <train> <speed>` - Set train speed (0-14)
+- `rv <train>` - Reverse train direction
+- `hl <train>` - Toggle train headlight
+
+#### Switch Control
+- `sw <switch> <S/C>` - Set switch direction (S=Straight, C=Curved)
+- `dsw <153/154/155/156> <L/C/R>` - Set double switch direction
+- `allsw <S/C>` - Set all single switches to same direction
+
+#### System Commands
+- `help` - Display available commands
+- `clear` - Clear the main panel
+- `reset` - Reset the track (stop all trains)
+- `sr` - Request sensor report from all banks
+- `go` - Start the demo function
+- `q` - Quit and reboot

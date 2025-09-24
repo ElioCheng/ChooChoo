@@ -1,0 +1,47 @@
+# ChooChoo OS - K3 Kernel Build and Operation Guide
+
+## Building the System
+
+### Prerequisites
+- ARM64 cross-compiler toolchain
+- CMake (version 3.10 or higher)
+- Make
+- Ninja
+
+### Build Instructions
+
+#### Standard Kernel Build
+
+For CS Environment:
+```bash
+make
+```
+
+The build process will:
+1. Clean and create a fresh build directory
+2. Configure CMake with appropriate cross-compiler and MMU settings
+3. Build the kernel with embedded user applications
+4. Generate `kernel.img` ready for deployment
+
+
+#### Cleaning Build Artifacts
+
+```bash
+make clean
+```
+
+## Operating the System
+
+### Starting Up
+1. Load the `kernel.img` onto the target system
+2. The system will boot and initialize the kernel
+3. The kernel will automatically create and run test user tasks
+
+### New System Calls Available in K3
+
+The K3 kernel includes all system calls from previous versions plus any new additions:
+
+#### Event Management
+- `AwaitEvent(id)` - Await an event
+#### Idle Task
+- `SetupIdleTask(idle_stats)` - Setup idle task

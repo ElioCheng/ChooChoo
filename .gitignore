@@ -1,0 +1,35 @@
+# Build directory
+build/
+build_*
+srr_perf_artifacts/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Object files
+*.o
+*.obj
+*.elf
+
+# Debug files
+*.dSYM/
+
+# Test files
+*.test
+test_runner
+
+.cache/
+
+.venv/
+
+.gdb_history
+
+.claude/
+CLAUDE.md
