@@ -1,19 +1,5 @@
 # CS452 Assignment K1 Report
 
-## Group Members
-
-| Name              | Waterloo ID | Student Number |
-|-------------------|-------------|----------------|
-| Tongkun Zhang     | t365zhan    | 20764299       |
-| Zixuan Cheng      | z24cheng    | 21002294       |
-
-## Repository Information
-
-- **Repository:** https://git.uwaterloo.ca/tongkun/choochoo
-- **Commit SHA:** `59ea9c1142b6b7d7532b89c3b4260a07efbc846d`
-- **Commit URL:** [View Commit CHANGEME](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/59ea9c1142b6b7d7532b89c3b4260a07efbc846d)
-
----
 
 ## Kernel Structure Description
 

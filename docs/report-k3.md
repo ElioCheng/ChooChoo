@@ -1,22 +1,5 @@
 # CS452 K3 Assignment Report
 
-## Group Members
-
-| Name              | Waterloo ID | Student Number |
-|-------------------|-------------|----------------|
-| Tongkun Zhang     | t365zhan    | 20764299       |
-| Zixuan Cheng      | z24cheng    | 21002294       |
-
----
-
-## Repository Information
-
-- **Repository URL:** https://git.uwaterloo.ca/tongkun/choochoo
-- **Commit SHA:** `344b78dfacda9993522cea09daf5389d318a890d`
-- **Commit Date:** [View Commit](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/344b78dfacda9993522cea09daf5389d318a890d)
-
----
-
 ## Kernel Structure Description
 
 Our K3 kernel extends the previous K2 milestone with **pre-emptive interrupt handling, an event system, a clock server, and an idle task with CPU-usage instrumentation**.

@@ -1,22 +1,5 @@
 # CS452 K2 Assignment Report
 
-## Group Members
-
-| Name              | Waterloo ID | Student Number |
-|-------------------|-------------|----------------|
-| Tongkun Zhang     | t365zhan    | 20764299       |
-| Zixuan Cheng      | z24cheng    | 21002294       |
----
-
-## Repository Information
-
-- **Repository URL:** https://git.uwaterloo.ca/tongkun/choochoo
-- **Commit SHA:** `6fcb02c45cf9f9a214a19e1f01ef563c300951a8`
-- **Commit Date:** [View Commit](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/6fcb02c45cf9f9a214a19e1f01ef563c300951a8)
-(The professor granted our team 2 days extension for this assignment, so this commit was before the deadline)
-
----
-
 ## Kernel Structure Description
 
 ### Key Features Implemented

@@ -1,9 +1,5 @@
 # CS652 Assignment 0 Report
 
-## Commit Information
-- `e4ea001e4bc4d83dd28dbd76e064bf4aad696064`
-- [Gitlab](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/e4ea001e4bc4d83dd28dbd76e064bf4aad696064)
-
 ## How to run the program
 - See `README-A0` for instructions
 

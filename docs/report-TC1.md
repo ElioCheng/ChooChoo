@@ -1,21 +1,5 @@
 # CS452 TC1 Report
 
-## Group Members
-
-| Name              | Waterloo ID | Student Number |
-|-------------------|-------------|----------------|
-| Tongkun Zhang     | t365zhan    | 20764299       |
-| Zixuan Cheng      | z24cheng    | 21002294       |
-
-## Repository Information
-
-- **Repository URL:** https://git.uwaterloo.ca/tongkun/choochoo
-- **Commit SHA:** `96d8fa44b1290cc3ddfcab6615f76c0d27d40b93`
-- **Commit Date:** [View Commit](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/96d8fa44b1290cc3ddfcab6615f76c0d27d40b93)
-
-
----
-
 ## 1. System Overview
 
 The Marklin Autonomous Train Control System represents a sophisticated real-time embedded solution for autonomous model train control.

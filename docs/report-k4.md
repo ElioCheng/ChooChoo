@@ -1,19 +1,5 @@
 # CS452 K4 Assignment Report
 
-## Group Members
-
-| Name              | Waterloo ID | Student Number |
-|-------------------|-------------|----------------|
-| Tongkun Zhang     | t365zhan    | 20764299       |
-| Zixuan Cheng      | z24cheng    | 21002294       |
-
-## Repository Information
-
-- **Repository URL:** https://git.uwaterloo.ca/tongkun/choochoo
-- **Commit SHA:** `592c68f1e40cce9be3daa81cad33e72c7e1f38d0`
-- **Commit Date:** [View Commit](https://git.uwaterloo.ca/tongkun/choochoo/-/tree/592c68f1e40cce9be3daa81cad33e72c7e1f38d0) * Deadline extended by 48 hours
-
-
 ## K4 at a Glance
 
 | Area | Key change in K4 | Benefit |
