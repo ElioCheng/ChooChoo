@@ -1,4 +1,4 @@
-# ChooChoo OS - TC2 Build and Operation Guide
+# ChooChoo OS - Build and Operation Guide
 
 ## Building the System
 
