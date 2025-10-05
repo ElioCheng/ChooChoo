@@ -1,6 +1,14 @@
-# ChooChoo OS Comprehensive walkthrough
-OS:
-Train Project:
+# ChooChoo OS 
+
+Welcome to ChooChoo OS, a lightweight, real-time operating system designed to support a multitasking train control project. This repository contains both the OS implementation and related projects, with detailed documentation for each component.
+
+# Key Components
+
+- **Operating System**: Explore the architecture, kernel design, and system-level features in the [**OS Report**](docs/report-k4.md)
+.
+
+- **Train Project**: Learn how the OS powers a dynamic train control system with preemptive scheduling, message passing, and path planning in the [**Train Control Report**](docs/report-TC1.md)
+.
 
 # ChooChoo OS - Build and Operation Guide
 
